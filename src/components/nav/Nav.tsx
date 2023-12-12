@@ -2,6 +2,7 @@
 import { Fragment, useState, useEffect } from "react";
 import Cart from "./components/Cart";
 import Icon from "./components/Icon";
+import User from "./components/User";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -217,7 +218,7 @@ function Nav() {
   const [openCart, setopenCart] = useState(false);
 
   return (
-    <div className="bg-white fixed top-0 w-full z-10">
+    <div className="bg-white fixed top-0 w-full z-10 border-b border-gray-200">
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
           <Transition.Child
@@ -252,7 +253,7 @@ function Nav() {
                 </div>
 
                 <Tab.Group as="div" className="mt-2">
-                  <div className="border-b border-gray-200">
+                  <div className="">
                     <Tab.List className="-mb-px flex space-x-8 px-4">
                       {navigation.categories.map((category) => (
                         <Tab
@@ -503,15 +504,7 @@ function Nav() {
 
               <div className="flex flex-1 items-center justify-end">
                 <Search />
-                <a
-                  href="#"
-                  className="p-2 text-gray-400 hover:text-gray-500 lg:ml-4">
-                  <span className="sr-only">Account</span>
-                  <UserIcon
-                    className="h-6 w-6 text-[#44686f]"
-                    aria-hidden="true"
-                  />
-                </a>
+                <User />
 
                 <div className="ml-4 flow-root lg:ml-6">
                   <CountCart setopenCart={setopenCart} />
